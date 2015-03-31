@@ -38,4 +38,9 @@ public class WordReverse {
         return reverse.toString().trim();
         }
 
+    public static void main (String[] args){
+        WordReverse wr = new WordReverse();
+        System.out.println (wr.reverseUsingStringBuilder("Hello World"));
+        System.out.println (wr.reverseUsingStack("Hello World"));
+    }
 }
