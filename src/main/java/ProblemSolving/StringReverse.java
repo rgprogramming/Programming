@@ -32,6 +32,10 @@ public class StringReverse {
         }
         return output;
     }
+    public String reverseUsingStringBuffer(String input){
+        String stringBuffer = new StringBuffer(input).reverse().toString();
+        return stringBuffer;
+    }
 
     public String reverseInEfficientWay (String input){
         if (input.length() == 0 || input == null){

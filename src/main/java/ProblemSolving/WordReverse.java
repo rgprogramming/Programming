@@ -13,7 +13,7 @@ import java.util.Stack;
 public class WordReverse {
     public String reverseUsingStringBuilder (String input){
         if (input.length() == 0 || input == null){
-            return null;
+            return input;
         }
         StringBuilder sb = new StringBuilder();
         String[] arr = input.split(" ");

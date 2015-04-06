@@ -7,8 +7,14 @@ import java.util.LinkedHashMap;
  * Program to find the first non repeating character.
  * Input ---> Hello
  * Output---> H
- * Ignore Case Sensitive
+ * Case Sensitive
  *
+ */
+
+/*
+Implementation of HashMap permits null key and null values.
+HashMap does not guarantee for the order of map. But in our problem we need to maintain order
+So we have used Linked HashMap which will provide same functionality as HashMap but will also guarantee order.
  */
 public class FindFirstUniqueCharacter {
     public Character firstUniqueChar(String input) {
@@ -16,6 +22,13 @@ public class FindFirstUniqueCharacter {
             return '\u0000';
         }
         // Used LinkedHashMap in order to guarantee the order of occurrence of character.
+
+        /*
+        Map.get() will return the value to which the specified is key is mapped
+        Map.containsKey() will return boolean, will return true if map contains a mapping to specified key
+        Map.put() will associates the specified value with the specified key in this map.
+
+         */
 
         LinkedHashMap<Character, Integer> mymap = new LinkedHashMap<Character, Integer>();
         for (int i = 0; i < input.length(); i++) {
@@ -27,6 +40,7 @@ public class FindFirstUniqueCharacter {
             }
 
         }
+        //Check condition if character is exactly = 1 then will return that character
         for (int i = 0; i < input.length(); i++){
             Character c = new Character(input.charAt(i));
             if(mymap.get(c) == 1){
@@ -37,7 +51,10 @@ public class FindFirstUniqueCharacter {
 
     public static void main (String[] args){
         FindFirstUniqueCharacter uniqueCharacter = new FindFirstUniqueCharacter();
+        //Expected output: H
         System.out.println (uniqueCharacter.firstUniqueChar("Hello"));
+        //Expected output: F
+        System.out.println (uniqueCharacter.firstUniqueChar("GeeksForGeeks"));
     }
 }
 

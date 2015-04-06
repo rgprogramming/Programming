@@ -12,7 +12,7 @@ package ProblemSolving;
  */
 public class FibonacciNumber {
 
-    public int fibonnaciUsingRecurvise (int position){
+    public static int fibonnaciUsingRecurvise (int position){
         if(position == 1 || position == 2){
             return 1;
         }
@@ -20,7 +20,7 @@ public class FibonacciNumber {
 
     }
 
-    public int fibonnaciUsingIteration(int position){
+    public static int fibonnaciUsingIteration(int position){
         if(position == 1 || position == 2){
             return 1;
         }
@@ -36,9 +36,8 @@ public class FibonacciNumber {
     }
 
     public static void main (String[] args){
-        FibonacciNumber fn = new FibonacciNumber();
-        System.out.println (fn.fibonnaciUsingIteration(6));
-        System.out.println (fn.fibonnaciUsingRecurvise(6));
+        System.out.println (fibonnaciUsingIteration(6));
+        System.out.println (fibonnaciUsingRecurvise(6));
 
 
     }
