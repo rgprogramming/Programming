@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by mital on 3/31/15.
+ * Created by mital on 4/15/15.
  * Program to check whether String contains unique character or not
  * Return true if string contains all unique character
  */
@@ -13,7 +13,7 @@ import java.util.Map;
 public class UniqueString {
 
     //Demonstrating if we cannot use any extra data structure
-    public boolean isUniqueUsingArraySort(String input) {
+    public static boolean isUniqueUsingArraySort(String input) {
         if (input.length() > 256) {
             return false;
         }
@@ -27,7 +27,7 @@ public class UniqueString {
         return true;
     }
 
-    public boolean isUniqueUsingArray(String input) {
+    public static boolean isUniqueUsingArray(String input) {
         if (input.length() > 256) {
             return false;
         }
@@ -37,42 +37,42 @@ public class UniqueString {
             if (char_set[val] == true) {
                 return false;
             }
+            else{
+                char_set[val] = true;
+            }
+        } return true;
+    }
+
+    public static boolean isUinqueUsingMap(String input){
+        if(input.length() > 256){
+            return false;
+        }
+        Map <Character, Integer> myMap = new HashMap<Character, Integer>();
+        for (int i = 0; i < input.length(); i++){
+            Character key = input.charAt(i);
+
+            if((myMap.containsKey(key))){
+                myMap.put(key, myMap.get(key) + 1);
+            }
+            else{
+                myMap.put(key, 1);
+            }
+        }
+        for (Character c : myMap.keySet()){
+            if(myMap.get(c) > 1){
+                return false;
+            }
         }
         return true;
     }
 
-//    public boolean isUniqueUsingMap(String input) {
-//        if (input == null || input.length() == 0 || input.length() > 256) {
-//            return false;
-//        }
-//        Map<Character, Integer> mymap = new HashMap<Character, Integer>();
-//        for (int i = 0; i < input.length(); i++) {
-//            Character c = input.charAt(i);
-//
-//            if (mymap.get(c) > 1) {
-//                mymap.put(c, mymap.get(c) + 1);
-//            } else {
-//                mymap.put(c, 1);
-//            }
-//        }
-//        for (Character c : mymap.keySet()) {
-//            System.out.println (" ->" + mymap.get(c));
-//
-//        }
-//
-//        for (Character c : mymap.keySet()) {
-//            if (mymap.get(c) > 1) {
-//                return false;
-//            }
-//        }
-//
-//        return true;
-//    }
-
     public static void main(String[] args) {
         UniqueString us = new UniqueString();
-        System.out.println(us.isUniqueUsingArraySort("Mital"));
-        System.out.println(us.isUniqueUsingArray("Mital"));
-      //  System.out.println(us.isUniqueUsingMap("Hello"));
+        System.out.println("Using Array Sort: Input --> Mital  Output --> " +us.isUniqueUsingArraySort("Mital"));
+        System.out.println("Using Array Sort: Input --> Hello   Output -->" +us.isUniqueUsingArraySort("Hello"));
+        System.out.println("Using Array: Input --> Mital   Output -->" +us.isUniqueUsingArray("Mital"));
+        System.out.println("Using Array:Input --> Hello   Output -->" +us.isUniqueUsingArray("Hello"));
+        System.out.println("Using Map: Input --> Hello  Output -->" +us.isUinqueUsingMap("Hello"));
+        System.out.println("Using Map: Input --> Mital  Output -->" +us.isUinqueUsingMap("Mital"));
     }
 }

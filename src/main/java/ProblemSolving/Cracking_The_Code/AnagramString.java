@@ -1,47 +1,47 @@
 package ProblemSolving.Cracking_The_Code;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by mital on 4/1/15.
  */
 public class AnagramString {
     public static boolean isAnagram(String first, String second){
-        if(first.length() == 0 || first == null || second == null || second.length()==0){
+        if (first.length() != second.length()) {
             return false;
         }
-       if( sort(first).equals(sort(second))){
-            return true;
+            if ((sort(first).equals (sort(second)))) {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        return false;
-    }
 
     public static String sort(String input){
        StringBuilder sb = new StringBuilder();
-        char[] arr = input.toCharArray();
-        Arrays.sort(arr);
-        for (int i = 0; i < arr.length; i++){
-            sb.append(arr[i]);
+        char[] charArray = input.toCharArray();
+        Arrays.sort(charArray);
+        for (int i = 0; i < charArray.length; i++){
+            sb.append(charArray[i]);
         }
-        return sb.toString();
+        String s;
+        s = sb.toString();
+        return s;
     }
 
-//    public static boolean isAnagramUsingStringBuilder (String first, String second){
-//        if(first.length() != second.length() || first == null || second == null){
-//            return false;
-//        }
-//        char[] arrOfFirst = first.toCharArray();
-//        StringBuilder sb = new StringBuilder(second);
-//        return false;
-//    }
 
-    public static void main (String[] args){
-        System.out.println (isAnagram("Hello","oellH"));
-        System.out.println (isAnagram("Hardik","kdiraH"));
-        System.out.println (isAnagram("Hardik","Mital"));
-        System.out.println ();
-//        System.out.println (isAnagramUsingStringBuilder("Hello", "oellH"));
-//        System.out.println (isAnagramUsingStringBuilder("Hardik", "kdiraH"));
-//        System.out.println (isAnagramUsingStringBuilder("Hardik", "Mital"));
+    public static void anagramUsingMap(String first, String second){
+        if(first.length() != second.length()){
+            System.out.println ("Not Anagram");
+        }
+        Map<Character, Integer> myMap = new HashMap<Character, Integer>();
     }
+
+    public static void main(String[] args){
+        System.out.println (isAnagram("hello", "eholl"));
+    }
+
 }
