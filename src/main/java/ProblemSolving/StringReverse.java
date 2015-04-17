@@ -47,4 +47,9 @@ public class StringReverse {
         }
         return sb.toString();
     }
+
+    public String reverseEfficient (String input){
+        String sb = new StringBuilder(input).reverse().toString();
+        return sb;
+    }
 }
